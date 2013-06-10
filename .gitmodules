@@ -1,0 +1,3 @@
+[submodule "vendor/idler"]
+	path = vendor/idler
+	url = git://github.com/kairichard/idler.git
