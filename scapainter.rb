@@ -30,6 +30,12 @@ def pout *args
   print Paint[*args]
 end
 
+def print_status *args
+  pout(" [ ",:white);
+  pout(*args);
+  pout(" ] ",:white)
+end
+
 Main {
   keyword('arr') {
     required
@@ -76,10 +82,26 @@ Main {
     def run
       step_width = params["step-width"].value
       total_width= params["total-width"].value
-      intial_interval = time / ( total_width / step_width )
-      pout "Recalculation interval ... ", :blue
-      pout(" [ ",:white); pout("Done", :green); pout(" ] ",:white)
-      puts ""
+      finish_at = Time.at(Time.now.to_i + time)
+      interval = time / ( total_width / step_width )
+      shots_taken = 0
+      shots_needed = total_width / step_width
+      idle_threshold = 10
+      while shots_taken < shots_needed do
+        sleep(interval)
+        if `idler`.to_i < idle_threshold
+          # take screenshot
+          print_status "Taking screenshot ... ", :blue
+          print_status "*click*", :green
+          puts ""
+          shots_needed = shots_needed - 1
+        end
+        time_left = finish_at - Time.now
+        interval = time_left / shots_needed
+        print_status "Recalculation interval ... ", :blue
+        print_status "#{interval}", :red
+        puts ""
+      end
     end
   end
 }
