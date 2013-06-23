@@ -4,13 +4,12 @@ GEM
     arrayfields (4.9.0)
     chronic (0.9.1)
     columnize (0.3.6)
-    debugger (1.2.2)
+    debugger (1.6.0)
       columnize (>= 0.3.1)
-      debugger-linecache (~> 1.1.1)
-      debugger-ruby_core_source (~> 1.1.5)
-    debugger-linecache (1.1.2)
-      debugger-ruby_core_source (>= 1.1.1)
-    debugger-ruby_core_source (1.1.5)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.1)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.2)
     fattr (2.2.1)
     main (5.2.0)
       arrayfields (>= 4.7.4)
@@ -19,6 +18,7 @@ GEM
       map (>= 5.1.0)
     map (6.5.1)
     paint (0.8.6)
+    ruby-progressbar (1.1.1)
 
 PLATFORMS
   ruby
@@ -27,3 +27,4 @@ DEPENDENCIES
   debugger
   main
   paint
+  ruby-progressbar
